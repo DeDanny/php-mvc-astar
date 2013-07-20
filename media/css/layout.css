@@ -1,0 +1,58 @@
+/* 
+    Document   : layout
+    Created on : 2-nov-2010, 21:13:08
+    Author     : Danny Kientz
+    Description:
+        layouts the test blog.
+*/
+
+* {
+    color:gray;
+    font-family: calibri, sans-serif;
+}
+
+h1 {
+    font-size: 130%;
+    margin-bottom: 15px;
+    margin-top:10px;
+}
+
+.lightgreen {
+    color:#B3CC82;
+}
+
+.page {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:20px;
+    width:400px;
+}
+
+.back{
+    display:block;
+    margin-bottom: 20px;
+}
+
+.blogitem {
+    margin-bottom: 20px;
+}
+
+.form {
+    display:table-caption;
+}
+.center{
+    color:black;
+}
+
+#menu {
+    border-bottom:1px solid;
+    border-top:1px solid;
+    margin:20px 0 25px;
+    padding:15px 0;
+}
+
+#menu li {
+    display:inline;
+    list-style-type:none;
+    margin-right:20px;
+}
