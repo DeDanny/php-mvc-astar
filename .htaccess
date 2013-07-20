@@ -12,7 +12,7 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^.* - [L]
 
-RewriteRule ^([A-z0-9_]+)/?([^/.]*)?/?(.*)? index.php?class=$1&methode=$2&values=$3 [L]
+RewriteRule ^(.*)? index.php?request=$1 [L]
 
 php_flag zlib.output_compression On
 php_value zlib.output_compression_level 5
