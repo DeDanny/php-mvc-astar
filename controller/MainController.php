@@ -1,5 +1,5 @@
 <?php
-class MainController {
+class MainController extends Controller {
     
     private static $row = 12;
     private static $column = 12;
@@ -11,9 +11,7 @@ class MainController {
         return array('view' => 'select', 'model' => $viewModel);
     }
     
-    public function draw($post = array()) {
-        
-        
+    public function draw() {
         
         return array('view' => 'draw', 'model' => $post);
     }
