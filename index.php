@@ -22,7 +22,7 @@ spl_autoload_register('autoLoaderConfig');
 $httpRequest = new HttpRequestImp($_GET, $_POST);
 $httpResponse = new HttpResponseImp();
 
-$bootStrapper = new BootStrapper($httpRequest, $httpResponse);
+$bootStrapper = BootStrapper::getBootstrapper($httpRequest, $httpResponse);
 
 spl_autoload_register('autoLoaderClassAndModel');
 
