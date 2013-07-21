@@ -1,23 +1,40 @@
 <?php
+
 session_start();
 
-print_r($_GET);
+function autoLoaderConfig($className) {
+    if (file_exists('./core/' . $className . '.php')) {
+        include_once './core/' . $className . '.php';
+    }
+}
 
-require_once './core.php';
+function autoLoaderClassAndModel($className) {
+    if (file_exists('./controller/' . $className . '.php')) {
+        include_once './controller/' . $className . '.php';
+    } else if (file_exists('./Model/' . $className . '.php')) {
+        include_once './model/' . $className . '.php';
+    }
+}
 
-$bootStrapper = new BootStrapper($_GET);
+spl_autoload_register('autoLoaderConfig');
 
-$httpRequest =  $bootStrapper->getRequest();
-$httpResponse = $bootStrapper->getResponse();
 
-$class = $bootStrapper->createClass();
+$httpRequest = new HttpRequestImp($_GET, $_POST);
+$httpResponse = new HttpResponseImp();
+
+$bootStrapper = new BootStrapper($httpRequest, $httpResponse);
+
+spl_autoload_register('autoLoaderClassAndModel');
+
+$className = $bootStrapper->getClassName();
+$class = new $className();
 $functionName = $bootStrapper->callFunction();
-$functionResponse = $class->$functionName($httpRequest, $httpResponse);
+$functionResponse = $class->$functionName($bootStrapper->getRequest(), $bootStrapper->getResponse());
 
 $model = $functionResponse['model'];
 $view = $functionResponse['view'];
 
-if(isset($_GET['ajax']) && $_GET['ajax'] == true) {
+if ($httpRequest->isAjaxRequest()) {
     echo json_encode($model);
 } else {
     include './view/' . $view . '.php';

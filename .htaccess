@@ -1,22 +1,22 @@
-#/1/action/var1/value1/var2/value2/var3/value3/
-#/id/methode/var1/value1/var2/value2/var3/value3/
-
-
 IndexIgnore * 
 
 Options -MultiViews
+Options -Indexes
+ServerSignature Off
 
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.* - [L]
-
-RewriteRule ^([A-z0-9_]+)/?([^/.]*)?/?(.*)? index.php?class=$1&methode=$2&values=$3 [L]
-
+php_flag display_errors on
 php_flag zlib.output_compression On
 php_value zlib.output_compression_level 5
 
+RewriteEngine On
+
 #error_reporting  =  E_ALL
-php_flag display_errors on
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule \.(jpg|jpeg|png|gif|js|css)$ - [L]
+
+RewriteRule ^(.*)? index.php?request=$1 [L]
+
+
 
