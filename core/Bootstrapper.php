@@ -10,16 +10,12 @@ class BootStrapper {
         $this->httpResponse = $htpResponse;
     }
 
-    public function parseGetArray($getString) {
-        
-    }
-
     public function __call($method, $args) {
         echo '<!-- this method ' . $method . ' does not exist -->' . "\n";
     }
 
-    public function createClass() {
-        return new MainController();
+    public function getClassName() {
+        return 'MainController';
     }
 
     public function callFunction() {

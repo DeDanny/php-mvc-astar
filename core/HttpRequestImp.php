@@ -1,22 +1,5 @@
 <?php
 
-//print_r(get_declared_interfaces());
-//print_r(get_declared_classes());
-
-interface HttpRequest {
-
-    public function __construct($get, $post);
-
-    function getRequest();
-
-    function isAjaxRequest();
-
-    function getGetElement($name, Boolean $escaped);
-}
-
-
-
-
 class HttpRequestImp implements HttpRequest {
 
     private $get;
@@ -46,25 +29,4 @@ class HttpRequestImp implements HttpRequest {
         
     }
 
-}
-
-class HttpResponseImp implements HttpResponse {
-    public function addView($viewName) {
-        
-    }
-
-    public function setHeader($header) {
-        
-    }
-
-    public function setRedirect($location, Boolean $stopRendering) {
-        if ($stopRendering == null) {
-            $stopRendering = true;
-        }
-        header($string);
-    }
-
-    public function setView($viewName) {
-        
-    }    
 }
