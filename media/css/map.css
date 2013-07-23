@@ -29,3 +29,10 @@
 .sand {
     background: url("../images/tiles.png") no-repeat scroll -32px 0 transparent;
 }
+
+.radio_on_map {
+    display: table;
+    height: 32px;
+    margin: auto;
+    vertical-align: middle;
+}

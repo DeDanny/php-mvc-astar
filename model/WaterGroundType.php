@@ -19,7 +19,7 @@ class WaterGroundType implements GroundType {
     }
 
     static public function isPlacable() {
-        return true;
+        return false;
     }
 
 }

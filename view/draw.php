@@ -6,9 +6,21 @@
         </style>
     </head>
     <form method="post" action="?request=main/draw">
-        <table><?php for ($column = 0; $column < $model['row']; $column++) { ?><tr><?php 
+        <table><?php for ($column = 0; $column < $model['row']; $column++) { 
+         ?><tr><?php 
             for ($row = 0; $row < $model['column']; $row++) {
-            ?><td class="tile <?php echo GroundTypes::getName($model[$row . ':' . $column]); ?>"><?php echo GroundTypes::getName($model[$row . ':' . $column]); ?></td><?php 
-            } ?></tr><?php } ?></table>
+                
+                $id =   $model[$row . ':' . $column];
+            
+                $cssClass = GroundTypes::getName($id);
+                $tableText = GroundTypes::getName($id);
+                $placable = GroundTypes::isPlacable($id);
+                
+                ?><td class="tile <?= $cssClass ?>"><?= $tableText ?><?php 
+                if($placable) {
+                    ?> <input type="radio" name="<?= $row . ':' . $column ?>" class="radio_on_map" />
+                <?php } ?></td><?php 
+                }
+            ?></tr><?php } ?></table>
     </form>
 </html>
