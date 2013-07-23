@@ -12,8 +12,8 @@ RewriteEngine On
 
 #error_reporting  =  E_ALL
 
-RewriteCond %{REQUEST_FILENAME} \.(css|js|jpg|gif|png)$ [NC]
-RewriteCond %{REQUEST_FILENAME} -f [NC]
-RewriteRule ^.*$ - [L]
+#RewriteCond %{REQUEST_FILENAME} \.(css|js|jpg|gif|png)$ [NC]
+#RewriteCond %{REQUEST_FILENAME} -f [NC]
+#RewriteRule ^.*$ - [L]
 
 #RewriteRule ^(.*) index.php?request=$1 [L]

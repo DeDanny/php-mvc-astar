@@ -34,6 +34,17 @@ $functionResponse = $class->$functionName($httpRequest, $httpResponse);
 $model = $functionResponse['model'];
 $view = $functionResponse['view'];
 
+if ($httpResponse->issetHeader()) {
+    header($httpResponse->getHeader());
+    
+    echo $httpResponse->getHeader();
+
+    if ($httpResponse->stopRendering()) {
+        exit('Stopped rendering');
+    }
+}
+
+
 if ($httpRequest->isAjaxRequest()) {
     echo json_encode($model);
 } else {

@@ -78,9 +78,12 @@ class MainController extends Controller {
         return array('view' => 'select', 'model' => $viewModel);
     }
 
-    public function draw(HttpRequest $httpRequest) {
-        $viewModel = array();
+    public function draw(HttpRequest $httpRequest, HttpResponse $httpResponse) {
+        
         $viewModel = $httpRequest->getPostElements();
+        if(!$viewModel || empty($viewModel)){
+            $httpResponse->setRedirect('.');
+        }
 
         $viewModel['size'] = self::row + self::column;
         $viewModel['row'] = self::row;

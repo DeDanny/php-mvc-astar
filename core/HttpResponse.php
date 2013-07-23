@@ -7,8 +7,10 @@ interface HttpResponse {
     function addView($viewName);
     
     function getViews();
+    
+    function stopRendering();
 
-    function setHeader($header);
+    function setHeader($header, $stopRendering = false);
 
-    function setRedirect($location, Boolean $stopRendering);
+    function setRedirect($location, $stopRendering = true);
 }
