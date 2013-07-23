@@ -29,7 +29,7 @@ spl_autoload_register('autoLoaderClassAndModel');
 $className = $bootStrapper->getClassName();
 $class = new $className();
 $functionName = $bootStrapper->callFunction();
-$functionResponse = $class->$functionName($bootStrapper->getRequest(), $bootStrapper->getResponse());
+$functionResponse = $class->$functionName($httpRequest, $httpResponse);
 
 $model = $functionResponse['model'];
 $view = $functionResponse['view'];

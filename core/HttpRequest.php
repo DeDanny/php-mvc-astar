@@ -2,11 +2,15 @@
 
 interface HttpRequest {
 
-    public function __construct($get, $post);
+    function __construct($get, $post);
 
     function getRequest();
 
     function isAjaxRequest();
 
-    function getGetElement($name, Boolean $escaped);
+    function getGetElement($name, $escaped = true);
+    
+    function getPostElement($name, $escaped = true);
+    
+    function getPostElements();
 }

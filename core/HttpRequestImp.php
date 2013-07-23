@@ -10,19 +10,20 @@ class HttpRequestImp implements HttpRequest {
         $this->post = $post;
     }
 
-    private function escape(String $string) {
-        return htmlentities($string);
+    public function getGetElement($name, $escaped = true) {
+        return isset($this->get[$name]) ? $escaped ?  addslashes($this->get[$name]) : $this->get[$name] : false;
     }
 
-    public function getGetElement($name, boolean $escaped) {
-        if($escaped == null) {
-            $escaped = true;
-        }
-        return isset($this->get[$name]) ? $escaped ? $this->get[$name] : htmlentities($this->get[$name])  : false;
+    public function getPostElement($name, $escaped = true) {
+        return isset($this->post[$name]) ? $escaped ? addslashes($this->post[$name]) : $this->post[$name] : false;
+    }
+    
+    public function getPostElements() {
+        return isset($this->post) ? $this->post : false;
     }
 
     public function getRequest() {
-        
+        return isset($this->get['request']) ? $this->get['request'] : false;
     }
 
     public function isAjaxRequest() {

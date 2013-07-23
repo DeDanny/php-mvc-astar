@@ -1,0 +1,31 @@
+/* 
+    Document   : map
+    Created on : 22-jul-2013, 20:51:17
+    Author     : Danny
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.tile {
+    height: 32px;
+    width: 32px;
+    overflow: hidden;
+    font-size: 0px;
+}
+
+.lava {
+    background: url("../images/tiles.png") no-repeat scroll -64px 0 transparent;
+}
+
+.mountain {
+    background: url("../images/tiles.png") no-repeat scroll -192px 0 transparent;
+}
+.water {
+    background: url("../images/tiles.png") no-repeat scroll -96px 0 transparent;
+}
+.grass {
+    background: url("../images/tiles.png") no-repeat scroll 0px 0 transparent;
+}
+.sand {
+    background: url("../images/tiles.png") no-repeat scroll -32px 0 transparent;
+}

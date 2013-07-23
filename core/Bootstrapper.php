@@ -9,9 +9,8 @@ class BootStrapper {
     private function __construct(HttpRequest $httpRequest, HttpResponse $htpResponse) {
         $this->httpRequest = $httpRequest;
         $this->httpResponse = $htpResponse;
-        
+
         $request = $this->httpRequest->getRequest();
-        var_dump($request);
     }
 
     public static function getBootstrapper(HttpRequest $httpRequest, HttpResponse $htpResponse) {
@@ -22,15 +21,35 @@ class BootStrapper {
     }
 
     public function __call($method, $args) {
-       // echo '<!-- this method ' . $method . ' does not exist -->' . "\n";
+        // echo '<!-- this method ' . $method . ' does not exist -->' . "\n";
     }
 
     public function getClassName() {
-        return 'MainController';
+
+        $class = explode('/', $this->httpRequest->getRequest())[0];
+
+        //here logic for url rewrite.
+
+        if ($class == null) {
+            return 'MainController';
+        }
+        return $class . 'Controller';
     }
 
     public function callFunction() {
-        return 'index';
+
+        $reguest = $this->httpRequest->getRequest();
+        $function = null;
+        if ($reguest) {
+            $function = explode('/', $this->httpRequest->getRequest())[1];
+        }
+
+
+        if ($function == null) {
+            return 'index';
+        }
+
+        return $function;
     }
 
 }

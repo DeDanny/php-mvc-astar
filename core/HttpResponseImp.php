@@ -4,10 +4,21 @@ class HttpResponseImp implements HttpResponse {
 
     private $header = "";
     
+    private $views = array();
+
+    public function setView($viewName) {
+        $this->views = array($viewName);
+    }
+    
     public function addView($viewName) {
         
+        $this->views[] = $viewName;
     }
 
+    public function getViews() {
+        return $this->views;
+    }
+    
     public function setHeader($header) {
        
     }
@@ -21,10 +32,6 @@ class HttpResponseImp implements HttpResponse {
             $stopRendering = true;
         }
         header($string);
-    }
-
-    public function setView($viewName) {
-        
     }
 
 }
