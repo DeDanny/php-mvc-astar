@@ -10,9 +10,9 @@
  *
  * @author Danny
  */
-class GrassSandType implements GroundType {
+class GrassGroundType implements GroundType {
 
-    private static $cost = 2;
+    private static $cost = 1;
 
     static public function getCost() {
         return self::$cost;

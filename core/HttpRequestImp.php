@@ -23,6 +23,9 @@ class HttpRequestImp implements HttpRequest {
     public function getPostElements() {
         return isset($this->post) ? $this->post : false;
     }
+    public function getGetElements() {
+        return isset($this->get) ? $this->get : false;
+    }
 
     public function getRequest() {
         return isset($this->get['request']) ? $this->get['request'] : false;

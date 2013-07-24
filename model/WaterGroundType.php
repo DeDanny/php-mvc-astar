@@ -12,7 +12,7 @@
  */
 class WaterGroundType implements GroundType {
 
-    private static $cost = 2;
+    private static $cost = 20;
 
     static public function getCost() {
         return self::$cost;

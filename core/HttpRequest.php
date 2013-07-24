@@ -9,8 +9,10 @@ interface HttpRequest {
     function isAjaxRequest();
 
     function getGetElement($name, $escaped = true);
-    
+
     function getPostElement($name, $escaped = true);
-    
+
     function getPostElements();
+
+    function getGetElements();
 }

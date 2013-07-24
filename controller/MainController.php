@@ -2,8 +2,6 @@
 
 class MainController extends Controller {
 
-    const row = 12;
-    const column = 12;
 
     public function index() {
 
@@ -12,13 +10,6 @@ class MainController extends Controller {
         $w = GroundTypes::water;
         $m = GroundTypes::mountain;
         $s = GroundTypes::sand;
-
-        /*
-         * Get item using x and y where x start right
-         * and y starts at the top:
-         * 
-         * (y * self::column) + x
-         */
 
         //                       x 0   1   2   3   4   5   6   7   8   9  10  11  //  y
         $viewModel['map'] = array($l, $l, $l, $l, $l, $l, $l, $l, $l, $l, $l, $l, //   0
@@ -34,11 +25,11 @@ class MainController extends Controller {
                                   $l, $w, $w, $g, $g, $g, $g, $g, $g, $g, $g, $l, //  10
                                   $l, $l, $l, $l, $l, $l, $l, $l, $l, $l, $l, $l); // 11
 
-        $viewModel['size'] = self::row + self::column;
-        $viewModel['row'] = self::row;
-        $viewModel['column'] = self::column;
+        $viewModel['size'] = Map::row + Map::column;
+        $viewModel['row'] = Map::row;
+        $viewModel['column'] = Map::column;
 
-        $colummn = self::column;
+        $colummn = Map::column;
         $viewModel['getObjectId'] = function($x, $y) use ($colummn) {
                     return ($y * $colummn) + $x;
                 };
@@ -85,9 +76,9 @@ class MainController extends Controller {
             $httpResponse->setRedirect('.');
         }
 
-        $viewModel['size'] = self::row + self::column;
-        $viewModel['row'] = self::row;
-        $viewModel['column'] = self::column;
+        $viewModel['size'] = Map::row + Map::column;
+        $viewModel['row'] = Map::row;
+        $viewModel['column'] = Map::column;
 
         return array('view' => 'draw', 'model' => $viewModel);
     }

@@ -15,8 +15,29 @@ abstract class GroundTypes {
 
     private function __construct() {
         
+    } 
+    
+    public static function getGroundType($id) {
+        switch ($id) {
+            case self::grass:
+                return new GrassGroundType();
+                break;
+            case self::lava:
+                return new LavaGroundType();
+                break;
+            case self::water:
+                return new WaterGroundType();
+                break;
+            case self::mountain:
+                return new MountainGroundType();
+                break;
+            case self::sand:
+                return new SandGroundType();
+                break;
+        }
     }
-
+    
+    
     public static function getName($id) {
         switch ($id) {
             case self::grass:
@@ -37,30 +58,30 @@ abstract class GroundTypes {
         }
     }
 
-    public static function getCost($id) {
-        switch ($id) {
-            case self::grass:
-                return GrassGroundType::getCost();
-                break;
-            case self::lava:
-                return LavaGroundType::getCost();
-                break;
-            case self::water:
-                return WaterGroundType::getCost();
-                break;
-            case self::mountain:
-                return MountainGroundType::getCost();
-                break;
-            case self::sand:
-                return SandGroundType::getCost();
-                break;
-        }
-    }
+//    public static function getCost($id) {
+//        switch ($id) {
+//            case self::grass:
+//                return GrassGroundType::getCost();
+//                break;
+//            case self::lava:
+//                return LavaGroundType::getCost();
+//                break;
+//            case self::water:
+//                return WaterGroundType::getCost();
+//                break;
+//            case self::mountain:
+//                return MountainGroundType::getCost();
+//                break;
+//            case self::sand:
+//                return SandGroundType::getCost();
+//                break;
+//        }
+//    }
 
     public static function isPlacable($id) {
         switch ($id) {
             case self::grass:
-                return GrassSandType::isPlacable();
+                return GrassGroundType::isPlacable();
                 break;
             case self::lava:
                 return LavaGroundType::isPlacable();
