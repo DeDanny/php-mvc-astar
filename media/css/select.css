@@ -1,0 +1,33 @@
+td {
+    border: 1px solid;
+    font-size: 0;
+    width: 45px;
+}
+
+td input {
+    display: inline;
+}
+
+
+.preview {
+    height: 32px;
+    margin: auto;
+    width: 32px;
+}
+
+.lava {
+    background: url("../images/tiles.png") no-repeat scroll -64px 0 transparent;
+}
+
+.mountain {
+    background: url("../images/tiles.png") no-repeat scroll -192px 0 transparent;
+}
+.water {
+    background: url("../images/tiles.png") no-repeat scroll -96px 0 transparent;
+}
+.grass {
+    background: url("../images/tiles.png") no-repeat scroll 0px 0 transparent;
+}
+.sand {
+    background: url("../images/tiles.png") no-repeat scroll -32px 0 transparent;
+}
