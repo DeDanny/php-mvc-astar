@@ -58,7 +58,7 @@ $(document).ready(function() {
             return setTimeout(walker, 500);
           }
         };
-        return setTimeout(walker, 500);
+        return walker();
       }
     });
   };

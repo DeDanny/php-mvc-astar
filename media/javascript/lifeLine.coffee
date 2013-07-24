@@ -45,5 +45,5 @@ $(document).ready ->
           if i < walkRoute.length
             setTimeout(walker, 500)
         
-        setTimeout(walker, 500)
+        walker()
       });
