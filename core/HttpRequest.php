@@ -2,7 +2,7 @@
 
 interface HttpRequest {
 
-    function __construct($get, $post);
+    function __construct($get, $post, $server);
 
     function getRequest();
 

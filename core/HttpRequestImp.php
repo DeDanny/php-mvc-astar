@@ -4,10 +4,12 @@ class HttpRequestImp implements HttpRequest {
 
     private $get;
     private $post;
+    private $server;
 
-    public function __construct($get, $post) {
+    public function __construct($get, $post, $server) {
         $this->get = $get;
         $this->post = $post;
+        $this->server = $server;
     }
 
     public function getGetElement($name, $escaped = true) {
@@ -27,7 +29,7 @@ class HttpRequestImp implements HttpRequest {
     }
 
     public function isAjaxRequest() {
-        
+        return isset($this->server['HTTP_X_REQUESTED_WITH']) && strtolower($this->server['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
     }
 
 }

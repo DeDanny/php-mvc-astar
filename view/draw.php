@@ -1,11 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
         <style>
             @import './media/css/reset.css';
             @import './media/css/map.css';
         </style>
+        <title>draw map</title>
+        <script src="./media/javascript/jquery-2.0.3.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            var jsonMap = '<?php echo json_encode($model)?>';
+        </script>
+        <script src="./media/javascript/lifeLine.js" type="text/javascript"></script>
     </head>
-    <form method="post" action="?request=main/draw">
+    <body>
         <table><?php for ($column = 0; $column < $model['row']; $column++) { 
          ?><tr><?php 
             for ($row = 0; $row < $model['column']; $row++) {
@@ -16,11 +23,12 @@
                 $tableText = GroundTypes::getName($id);
                 $placable = GroundTypes::isPlacable($id);
                 
-                ?><td class="tile <?= $cssClass ?>"><?= $tableText ?><?php 
+                ?><td id="<?= $row . '_' . $column ?>" class="tile <?= $cssClass ?>"><?= $tableText ?><?php 
                 if($placable) {
-                    ?> <input type="radio" name="<?= $row . ':' . $column ?>" class="radio_on_map" />
+                    ?> <input type="radio" name="<?= $row . ':' . $column ?>" value="<?= $row . ':' . $column ?>" class="radio_on_map" />
                 <?php } ?></td><?php 
                 }
-            ?></tr><?php } ?></table>
-    </form>
+        ?></tr><?php } ?>
+        </table>
+    </body>
 </html>

@@ -13,6 +13,18 @@
     font-size: 0px;
 }
 
+#agent {
+    background: url("../images/tiles.png") repeat scroll -224px 0 transparent;
+    height: 32px;
+    width: 32px;
+}
+
+#food {
+    background: url("../images/tiles.png") repeat scroll -256px 0 transparent;
+    height: 32px;
+    width: 32px;
+}
+
 .lava {
     background: url("../images/tiles.png") no-repeat scroll -64px 0 transparent;
 }

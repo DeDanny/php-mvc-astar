@@ -19,7 +19,7 @@ function autoLoaderClassAndModel($className) {
 spl_autoload_register('autoLoaderConfig');
 
 
-$httpRequest = new HttpRequestImp($_GET, $_POST);
+$httpRequest = new HttpRequestImp($_GET, $_POST, $_SERVER);
 $httpResponse = new HttpResponseImp();
 
 $bootStrapper = BootStrapper::getBootstrapper($httpRequest, $httpResponse);
@@ -31,14 +31,11 @@ $class = new $className();
 $functionName = $bootStrapper->callFunction();
 $functionResponse = $class->$functionName($httpRequest, $httpResponse);
 
-$model = $functionResponse['model'];
-$view = $functionResponse['view'];
+$model = isset($functionResponse['model']) ? $functionResponse['model'] : null;
+$view = isset($functionResponse['view']) ? $functionResponse['view'] : false;
 
 if ($httpResponse->issetHeader()) {
     header($httpResponse->getHeader());
-    
-    echo $httpResponse->getHeader();
-
     if ($httpResponse->stopRendering()) {
         exit('Stopped rendering');
     }
@@ -47,7 +44,7 @@ if ($httpResponse->issetHeader()) {
 
 if ($httpRequest->isAjaxRequest()) {
     echo json_encode($model);
-} else {
+} else if ($view) {
     include './view/' . $view . '.php';
 }
     
