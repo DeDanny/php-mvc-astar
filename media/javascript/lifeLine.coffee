@@ -16,7 +16,7 @@ $(document).ready ->
   start = (user, food) ->
      $.ajax({
       type: "POST",
-      url: "?request=astar/calculateSteps",
+      url: "?request=Astar/calculateSteps",
       data: {'map' : jsonMap, 'user' : user, 'food' : food},
       success: (data) ->
         walkRoute = JSON.parse data

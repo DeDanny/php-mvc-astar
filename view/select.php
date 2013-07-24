@@ -9,7 +9,7 @@
         <script src="./media/javascript/select.js" type="text/javascript"></script>
 
     </head>
-    <form method="post" action="?request=main/draw">
+    <form method="post" action="?request=Main/draw">
         <input type="submit"/>
         <table>
             <?php

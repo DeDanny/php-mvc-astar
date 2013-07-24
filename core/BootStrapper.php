@@ -26,7 +26,8 @@ class BootStrapper {
 
     public function getClassName() {
 
-        $class = explode('/', $this->httpRequest->getRequest())[0];
+        $explode = explode('/', $this->httpRequest->getRequest());
+        $class = $explode[0];
 
         //here logic for url rewrite.
 
@@ -41,7 +42,8 @@ class BootStrapper {
         $reguest = $this->httpRequest->getRequest();
         $function = null;
         if ($reguest) {
-            $function = explode('/', $this->httpRequest->getRequest())[1];
+            $explode = explode('/', $this->httpRequest->getRequest());
+            $function = $explode[1];
         }
 
 

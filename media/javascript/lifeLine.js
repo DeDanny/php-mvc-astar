@@ -19,7 +19,7 @@ $(document).ready(function() {
   return start = function(user, food) {
     return $.ajax({
       type: "POST",
-      url: "?request=astar/calculateSteps",
+      url: "?request=Astar/calculateSteps",
       data: {
         'map': jsonMap,
         'user': user,

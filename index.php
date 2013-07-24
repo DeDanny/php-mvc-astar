@@ -11,7 +11,7 @@ function autoLoaderConfig($className) {
 function autoLoaderClassAndModel($className) {
     if (file_exists('./controller/' . $className . '.php')) {
         include_once './controller/' . $className . '.php';
-    } else if (file_exists('./Model/' . $className . '.php')) {
+    } else if (file_exists('./model/' . $className . '.php')) {
         include_once './model/' . $className . '.php';
     }
 }
