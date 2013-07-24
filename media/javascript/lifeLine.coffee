@@ -20,12 +20,15 @@ $(document).ready ->
       data: {'map' : jsonMap, 'user' : user, 'food' : food},
       success: (data) ->
         walkRoute = JSON.parse data
+        map = JSON.parse jsonMap
         i = 0
         walker = =>
           $('#agent').remove()
           $('#' + walkRoute[i].replace(':', '_')).append('<div id="agent" />')
           if food == walkRoute[i]
             $('#food').remove()
+          if map[walkRoute[i]] == "1"
+            alert "AAAAA LAVA";
           i++
           if i < walkRoute.length
             setTimeout(walker, 500)

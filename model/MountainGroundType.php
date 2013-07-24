@@ -12,7 +12,7 @@
  */
 class MountainGroundType implements GroundType {
 
-    private static $cost = 12;
+    private static $cost = 7;
 
     static public function getCost() {
         return self::$cost;

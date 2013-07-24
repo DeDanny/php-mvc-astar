@@ -50,7 +50,8 @@ class AstarController {
 
             $mCost = $this->manhattanDistance($this->parseLocation($key), $this->food) + "\n";
 
-            $node->setCost($node->getTile()->getCost() + $mCost + $smallest->getCost());
+            $node->setLineCost($mCost);
+            $node->setCost($node->getTile()->getCost() + $smallest->getCost());
 
             $frontier[] = $node;
         }
@@ -81,7 +82,7 @@ class AstarController {
         foreach ($frontier as $node) {
             if ($smallest == null) {
                 $smallest = $node;
-            } else if ($smallest->getCost() > $node->getCost()) {
+            } else if ($smallest->getCost() + $smallest->getLineCost()  > $node->getCost() + $node->getLineCost()) {
                 $smallest = $node;
             }
         }

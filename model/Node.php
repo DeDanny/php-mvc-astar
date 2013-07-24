@@ -16,13 +16,21 @@ class Node {
     private $previousNode;
     private $tile;
     private $location;
+    private $lineCost;
 
     public function __construct($tile, $location, $previousNode = null) {
         $this->previousNode = $previousNode;
         $this->location = $location;
         $this->tile = $tile;
     }
-
+    
+    public function setLineCost($lineCost){
+        $this->lineCost = $lineCost;
+    }
+    public function getLineCost(){
+        return $this->lineCost;
+    }
+    
     public function setTile($tile) {
         $this->tile = $tile;
     }

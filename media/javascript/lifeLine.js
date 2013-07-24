@@ -26,15 +26,19 @@ $(document).ready(function() {
         'food': food
       },
       success: function(data) {
-        var i, walkRoute, walker,
+        var i, map, walkRoute, walker,
           _this = this;
         walkRoute = JSON.parse(data);
+        map = JSON.parse(jsonMap);
         i = 0;
         walker = function() {
           $('#agent').remove();
           $('#' + walkRoute[i].replace(':', '_')).append('<div id="agent" />');
           if (food === walkRoute[i]) {
             $('#food').remove();
+          }
+          if (map[walkRoute[i]] === "1") {
+            alert("AAAAA LAVA");
           }
           i++;
           if (i < walkRoute.length) {
