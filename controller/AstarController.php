@@ -18,7 +18,6 @@ class AstarController {
     public function calculateSteps(HttpRequest $httpRequest) {
 
         $post = $httpRequest->getPostElements();
-        //$post = $httpRequest->getGetElements();
 
         $mapData = json_decode($post['map'], true);
         $user = new Node(0, $post['user']);
@@ -27,10 +26,7 @@ class AstarController {
         $this->map = new Map($mapData);
 
         $nodes = $this->step($user, array());
-
-
-        //print_r(array('2:1', '2:2', '2:3', '2:4', '2:5', '2:6', '2:7', '3:7', '3:8', '3:9', '4:9', '5:9', '6:9', '7:9', '8:9', '8:8', '8:7', '8:6', '7:6', '6:6'));
-        //return array('model' => array('2:1', '2:2', '2:3', '2:4', '2:5', '2:6', '2:7', '3:7', '3:8', '3:9', '4:9', '5:9', '6:9', '7:9', '8:9', '8:8', '8:7', '8:6', '7:6', '6:6'));
+        
         return array('model' => $this->getPathFromNodes($nodes, array()));
     }
 

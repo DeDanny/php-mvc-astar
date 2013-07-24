@@ -26,19 +26,32 @@ $(document).ready(function() {
         'food': food
       },
       success: function(data) {
-        var i, map, walkRoute, walker,
+        var ghost, i, map, onFire, walkRoute, walker,
           _this = this;
         walkRoute = JSON.parse(data);
         map = JSON.parse(jsonMap);
         i = 0;
+        onFire = false;
+        ghost = false;
         walker = function() {
           $('#agent').remove();
           $('#' + walkRoute[i].replace(':', '_')).append('<div id="agent" />');
+          if (onFire && !ghost) {
+            $('#agent').css('background-position', '-288px');
+          }
+          if (ghost) {
+            $('#agent').css('background-position', '-320px');
+          }
           if (food === walkRoute[i]) {
             $('#food').remove();
           }
-          if (map[walkRoute[i]] === "1") {
-            alert("AAAAA LAVA");
+          if (map[walkRoute[i]] === "1" && !ghost) {
+            onFire = true;
+            $('#agent').css('background-position', '-288px');
+          }
+          if (map[walkRoute[i]] === "2" && onFire) {
+            ghost = true;
+            $('#agent').css('background-position', '-320px');
           }
           i++;
           if (i < walkRoute.length) {
