@@ -21,7 +21,7 @@ class Map {
         $this->mapData = $mapData;
     }
 
-    public function getSides($user) {
+    public function getNonWalkedSides($user) {
         $xy = explode(':', $user);
 
         $row = 0;
