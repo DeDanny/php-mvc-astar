@@ -10,7 +10,7 @@
 
     </head>
     <form method="post" action="?request=Main/draw">
-        <input type="submit"/>
+        <input type="submit"/> &leftarrow; Select the tiles you want and press the button;
         <table>
             <?php
             for ($column = 0; $column < $model['row']; $column++) {

@@ -48,3 +48,12 @@
     margin: auto;
     vertical-align: middle;
 }
+
+p, h1, ul, li{
+   padding: 5px;
+} 
+
+ol {
+    list-style: decimal outside none;
+    padding: 4px 45px;
+}

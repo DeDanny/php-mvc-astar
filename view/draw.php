@@ -13,6 +13,7 @@
         <script src="./media/javascript/lifeLine.js" type="text/javascript"></script>
     </head>
     <body>
+        <h1>Demo of a A* implementation</h1>
         <table><?php for ($column = 0; $column < $model['row']; $column++) { 
          ?><tr><?php 
             for ($row = 0; $row < $model['column']; $row++) {
@@ -30,5 +31,9 @@
                 }
         ?></tr><?php } ?>
         </table>
+    <p>Select two radio buttons.</p>
+    <ol><li>The first one is the agent.</li>
+        <li>The second one the food the agent will go after.</li></ol>
+        <!--Hey there. Please don't burn the agent...-->
     </body>
 </html>
