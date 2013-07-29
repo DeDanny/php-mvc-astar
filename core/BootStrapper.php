@@ -9,8 +9,6 @@ class BootStrapper {
     private function __construct(HttpRequest $httpRequest, HttpResponse $htpResponse) {
         $this->httpRequest = $httpRequest;
         $this->httpResponse = $htpResponse;
-
-        $request = $this->httpRequest->getRequest();
     }
 
     public static function getBootstrapper(HttpRequest $httpRequest, HttpResponse $htpResponse) {
@@ -20,10 +18,6 @@ class BootStrapper {
         return self::$self;
     }
 
-    public function __call($method, $args) {
-        // echo '<!-- this method ' . $method . ' does not exist -->' . "\n";
-    }
-
     public function getClassName() {
 
         $explode = explode('/', $this->httpRequest->getRequest());
@@ -31,7 +25,9 @@ class BootStrapper {
 
         //here logic for url rewrite.
 
-        if ($class == null) {
+        $className = $class . 'Controller';
+        
+        if (!class_exists($className) || $class == null) {
             return 'MainController';
         }
         return $class . 'Controller';
